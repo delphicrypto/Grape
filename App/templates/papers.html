@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<head>
+<title> Axiom </title>
+<h1>Welcome to Axiom</h1>
+</head>
+<body>
+List of papers:
+<ul id="papers">
+{% for item in papers %}
+    <li><a href="{{item.href}}">{{item.title}}</a></li>
+{% endfor %}
+</body>
+</html>
+

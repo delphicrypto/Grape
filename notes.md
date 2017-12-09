@@ -1,0 +1,43 @@
+# Blockchain Ideas
+
+## Decentralized Peer Review
+
+### Chrome Extension
+
+* Chrome extension for arXiv.
+* When you open a paper, it lets you type in a review and attach some reputation.
+* Keep track of UTXO pool of reputations.
+* No identities, but we can have a service where people can identify themselves if they choose.
+* Every paper has some reputation that can be unlocked by reviewing.
+* As consensus on paper shifts, stake placed on paper shifts.
+
+### Tangle Reviewing
+
+* To submit a paper you have to review 2 others.
+* Reputation gets staked and stored as a weighted directed edge.
+* Also when review, you look at all edges going into paper you are reviewing and update reputations.
+* The first paper ever is called the 'Axiom' and it has all the rep in the network.
+* When you review you claim some of the rep in the paper you are reviewing. Outcomes for reviewer $R$ evaluating paper $P$:
+
+	| Review Decision | Review Quality| Desired Outcome |
+	| ----------------| --------------| --------------- |
+	| + / -        | Poor          |  $P$ not affected, $R$ punished.               |
+	| +        | Good          |  some portion of $P$ rep transferred to $R$              |
+	| -        | Good          |   $P$ punished, $R$ rewarded
+
+	
+* Submitting HAS to come at a substantial enough cost to prevent spamming the network.
+* IOTA is Accounts based. You create a 'seed' which is the account password from which addresses and private keys can be generated. Accounts can have balances (in this case, REP). Maybe in order to create an account you need a valid email (institutional? do we want to limit participation? probably not).
+
+### Similar projects
+
+[2013 post proposing decentralized journal](https://lists.w3.org/Archives/Public/public-webpayments/2013Jan/0011.html)
+
+[decentralized wikipedia](https://www.wired.com/story/everipedia-blockchain/)
+
+[aletheia](https://github.com/aletheia-foundation)
+
+
+## Blockchain + ML
+
+### Unsupervised learning 
