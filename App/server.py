@@ -2,6 +2,7 @@ import os
 from os import path
 import sys
 import logging
+import hashlib
 
 from flask import Flask
 from flask import render_template
@@ -20,6 +21,18 @@ class Paper:
     def __init__(self, paper_path):
         self.href = paper_path
         self.title = path.basename(paper_path).split(".")[0]
+        self.hash = _paper_hash(paper_path)
+
+def _paper_hash(paper_path, BUF_SIZE = 65536):
+    md5 = hashlib.md5()
+    with open(paper_path, 'rb') as fp:
+        while True:
+            data = fp.read(BUF_SIZE)
+            if not data:
+                break
+            md5.update(data)
+    return md5.hexdigest()
+
 def load_papers():
     papers = os.listdir("Papers")
     logger.info(papers)
@@ -35,3 +48,6 @@ def paper_list():
 @app.route('/Papers/<p_id>')
 def send_pdf(p_id=None):
     return send_from_directory('Papers', p_id )
+@app.route('/tangle')
+def tangle():
+    return render_template('tangle.html')

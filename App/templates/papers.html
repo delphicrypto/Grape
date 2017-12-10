@@ -7,7 +7,7 @@
 List of papers:
 <ul id="papers">
 {% for item in papers %}
-    <li><a href="{{item.href}}">{{item.title}}</a></li>
+    <li><a href="{{item.href}}">{{item.title}}</a> MD5: {{item.hash}}</li>
 {% endfor %}
 </body>
 </html>
