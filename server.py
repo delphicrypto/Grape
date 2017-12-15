@@ -51,7 +51,7 @@ def load_tangle():
     Returns:
     Graph: networkx graph object of tangle.
     """
-    graph_data = json.load(open("tangle.json", "rb"))
+    graph_data = json.load(open("tangle.json", "r"))
     tangle = json_graph.node_link_graph(graph_data)
     return tangle
 
@@ -81,7 +81,7 @@ def update_tangle(tangle, paper, link_1, rev_1,  link_2, rev_2, pub):
 
     #dump new version of tangle
     graph_data = json_graph.node_link_data(G)
-    json.dump(graph_data, open("tangle.json", "wb"))
+    json.dump(graph_data, open("tangle.json", "w"))
 
     pass
 

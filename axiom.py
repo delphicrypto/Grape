@@ -48,7 +48,7 @@ def axiom_paper():
     nx.draw(G)
     plt.show()
     graph_data = json_graph.node_link_data(G)
-    # json.dump(graph_data, open("force/tangle.json", "w"))
+    json.dump(graph_data, open("tangle.json", "w"))
 
     pass
 
