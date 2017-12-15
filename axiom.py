@@ -43,13 +43,12 @@ def axiom_paper():
     G.add_edge(crick_addr, crick_data['link_1'], rev=1)
     G.add_edge(crick_addr, crick_data['link_2'], rev=1)
 
-    #first review
 
     graph_data = json_graph.node_link_data(G)
-    json.dump(graph_data, open("force/tangle.json", "wb"))
+    json.dump(graph_data, open("force/tangle.json", "w"))
 
     pass
 
 if __name__ == "__main__":
-    # axiom_paper()
-    json.load(open("tangle.json", "rb"))
+    axiom_paper()
+    # json.load(open("tangle.json", "r"))
