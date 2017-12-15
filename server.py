@@ -1,5 +1,6 @@
 import os
 from os import path
+import time
 import sys
 import logging
 import hashlib
@@ -70,7 +71,8 @@ def update_tangle(tangle, paper, link_1, rev_1,  link_2, rev_2, pub):
     data = {
         'link_1': link_1,
         'link_2': link_2,
-        'pub': pub
+        'pub': pub,
+        'timestamp': time.time()
             }
     #add node to graph
     tangle.add_node(paper, attr_dict=data)
