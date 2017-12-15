@@ -23,6 +23,7 @@ def axiom_paper():
         'pub': keypair()[1].x,
         'timestamp': time.time()}
     G.add_node('23b391d38e4827864257263921fae0fb', attr_dict=node_data)
+    # G.add_node(0, attr_dict=node_data)
 
     node_data_2 = {
         'link_1':'000000000000000000000000000000000',
@@ -40,15 +41,18 @@ def axiom_paper():
     }
     crick_addr = 'e4d8e61c260d6e053a1e32347dcd3d44'
     G.add_node(crick_addr, attr_dict=crick_data)
+    # G.add_node(2, attr_dict=crick_data)
     
     G.add_edge(crick_addr, crick_data['link_1'], rev=1)
     G.add_edge(crick_addr, crick_data['link_2'], rev=1)
 
+    # G.add_edge(2, 1, rev=1)
+    # G.add_edge(2, 0, rev=1)
 
-    nx.draw(G)
-    plt.show()
+    # nx.draw(G)
+    # plt.show()
     graph_data = json_graph.node_link_data(G)
-    json.dump(graph_data, open("tangle.json", "w"))
+    json.dump(graph_data, open("static/tangle.json", "w"))
 
     pass
 

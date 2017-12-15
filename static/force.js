@@ -7,16 +7,30 @@ var vis = d3.select("#chart")
     .attr("width", w)
     .attr("height", h);
 
-    d3.json("tangle.json", function(json) {
-  var force = d3.layout.force()
+d3.json("tangle.json", function(json) {
+
+var edges = [];
+
+json.links.forEach(function(e) { 
+    // Get the source and target nodes
+var sourceNode = json.nodes.filter(function(n) { return n.id === e.source;  })[0],
+    targetNode = json.nodes.filter(function(n) { return n.id === e.target;  })[0];
+	console.log(targetNode)
+     // Add the edge to the array
+    edges.push({source: sourceNode, target: targetNode});
+  });
+
+//console.log(edges)
+
+var force = d3.layout.force()
       .charge(-120)
       .linkDistance(50)
       .nodes(json.nodes)
-      .links(json.links)
+      .links(edges)
       .size([w, h])
       .start();
 
-  var link = vis.selectAll("line.link")
+var link = vis.selectAll("line.link")
       .data(json.links)
     .enter().append("svg:line")
       .attr("class", "link")
@@ -26,7 +40,7 @@ var vis = d3.select("#chart")
       .attr("x2", function(d) { return d.target.x;  })
       .attr("y2", function(d) { return d.target.y;  });
 
-  var node = vis.selectAll("circle.node")
+var node = vis.selectAll("circle.node")
       .data(json.nodes)
     .enter().append("svg:circle")
       .attr("class", "node")
