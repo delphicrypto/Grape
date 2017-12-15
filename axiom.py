@@ -57,5 +57,7 @@ def axiom_paper():
     pass
 
 if __name__ == "__main__":
-    axiom_paper()
+    # axiom_paper()
     # json.load(open("tangle.json", "r"))
+    # priv, pub= keypair()
+    # print(pub.__dict__)

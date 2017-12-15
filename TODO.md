@@ -7,3 +7,4 @@
 * Use real ECDSA public key in axiom.py
 * Allow user to generate keypair on submission page
 * Add arrows to edges [link](http://bl.ocks.org/fancellu/2c782394602a93921faff74e594d1bb1)
+* Live update graph
