@@ -119,12 +119,12 @@ def paper_list():
 def send_pdf(p_id=None):
     return send_from_directory('Papers', p_id )
 
-@app.route('/tangle')
-def tangle():
+@app.route('/<path:path>')
+def tangle(path):
     """
     Needs to take tangle graph object
     """
-    return render_template('force.html')
+    return app.send_static_file(path)
 
 if __name__ == "__main__":
     app.run()
