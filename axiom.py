@@ -24,17 +24,29 @@ def axiom_paper():
     G.add_node('23b391d38e4827864257263921fae0fb', attr_dict=node_data)
 
     node_data_2 = {
-        'link_1':'000000000000000000000000000000000'
-        'link_2':'000000000000000000000000000000000'
+        'link_1':'000000000000000000000000000000000',
+        'link_2':'000000000000000000000000000000000',
         'pub': keypair()[1].x,
         'timestamp': time.time()
     }
     G.add_node('2ca8634aba5742cf565650e771cb70bd', attr_dict=node_data_2)
 
+    crick_data = {
+        'link_1':'23b391d38e4827864257263921fae0fb',
+        'link_2':'2ca8634aba5742cf565650e771cb70bd',
+        'pub': keypair()[1].x,
+        'timestamp': time.time()
+    }
+    crick_addr = 'e4d8e61c260d6e053a1e32347dcd3d44'
+    G.add_node(crick_addr, attr_dict=crick_data)
+    
+    G.add_edge(crick_addr, crick_data['link_1'], rev=1)
+    G.add_edge(crick_addr, crick_data['link_2'], rev=1)
+
     #first review
 
     graph_data = json_graph.node_link_data(G)
-    json.dump(graph_data, open("tangle.json", "wb"))
+    json.dump(graph_data, open("force/tangle.json", "wb"))
 
     pass
 
