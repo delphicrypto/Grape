@@ -3,6 +3,7 @@ import json
 
 import networkx as nx
 from networkx.readwrite import json_graph
+import matplotlib.pyplot as plt
 from fastecdsa import keys, curve
 
 def keypair():
@@ -44,8 +45,10 @@ def axiom_paper():
     G.add_edge(crick_addr, crick_data['link_2'], rev=1)
 
 
+    nx.draw(G)
+    plt.show()
     graph_data = json_graph.node_link_data(G)
-    json.dump(graph_data, open("force/tangle.json", "w"))
+    # json.dump(graph_data, open("force/tangle.json", "w"))
 
     pass
 

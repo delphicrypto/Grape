@@ -8,6 +8,7 @@ var vis = d3.select("#chart")
     .attr("height", h);
 
     d3.json("tangle.json", function(json) {
+	console.log(json);
   var force = d3.layout.force()
       .charge(-120)
       .linkDistance(30)
