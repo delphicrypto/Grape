@@ -23,7 +23,7 @@ def axiom_paper():
         'timestamp': time.time()}
     G.add_node('23b391d38e4827864257263921fae0fb', attr_dict=node_data)
 
-    # G.add_node()
+    # # G.add_node()
     graph_data = json_graph.node_link_data(G)
     json.dump(graph_data, open("tangle.json", "wb"))
 
