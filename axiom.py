@@ -23,7 +23,16 @@ def axiom_paper():
         'timestamp': time.time()}
     G.add_node('23b391d38e4827864257263921fae0fb', attr_dict=node_data)
 
-    # # G.add_node()
+    node_data_2 = {
+        'link_1':'000000000000000000000000000000000'
+        'link_2':'000000000000000000000000000000000'
+        'pub': keypair()[1].x,
+        'timestamp': time.time()
+    }
+    G.add_node('2ca8634aba5742cf565650e771cb70bd', attr_dict=node_data_2)
+
+    #first review
+
     graph_data = json_graph.node_link_data(G)
     json.dump(graph_data, open("tangle.json", "wb"))
 
