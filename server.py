@@ -128,5 +128,9 @@ def tangle(path):
     """
     return app.send_static_file(path)
 
+@app.route('/home')
+def temp():
+    papers = load_papers()
+    return render_template('home.html', papers=papers)
 if __name__ == "__main__":
     app.run()
