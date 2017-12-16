@@ -1,17 +1,5 @@
 <!DOCTYPE html>
-<head>
-<title> Grape Journal </title>
-<h1>Welcome to Grape</h1>
-</head>
-<body>
-List of papers:
 <ul id="papers">
 {% for item in papers %}
     <li><a href="{{item.href}}">{{item.title}}</a> MD5: {{item.hash}}</li>
 {% endfor %}
-<br>
-<a href="/tangle">Tangle Browser</a>
-</body>
-
-</html>
-
