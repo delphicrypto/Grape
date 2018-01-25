@@ -87,7 +87,7 @@ def update_tangle(tangle, paper, link_1, rev_1,  link_2, rev_2, pub):
 
 @app.route('/')
 def welcome():
-    return render_template('index.html')
+    return render_template('home.html')
 
 @app.route('/submit')
 def submit_form():
