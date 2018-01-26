@@ -85,10 +85,6 @@ def update_tangle(tangle, paper, link_1, rev_1,  link_2, rev_2, pub):
 
     pass
 
-@app.route('/')
-def welcome():
-    return render_template('home.html')
-
 @app.route('/submit')
 def submit_form():
     return render_template('submit.html')
@@ -128,7 +124,7 @@ def tangle(path):
     """
     return app.send_static_file(path)
 
-@app.route('/home')
+@app.route('/')
 def temp():
     papers = load_papers()
     return render_template('home.html', papers=papers)
