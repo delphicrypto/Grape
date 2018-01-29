@@ -80,8 +80,8 @@ def update_tangle(tangle, paper, link_1, rev_1,  link_2, rev_2, pub):
     tangle.add_edge(paper, link_1, rev=rev_1)
 
     #dump new version of tangle
-    graph_data = json_graph.node_link_data(G)
-    json.dump(graph_data, open("tangle.json", "w"))
+    graph_data = json_graph.node_link_data(tangle)
+    json.dump(graph_data, open("templates/tangle.json", "w"))
 
     pass
 
